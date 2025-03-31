@@ -11,8 +11,8 @@ until curl -s http://localhost:9990/management > /dev/null; do
 done
 
 /opt/jboss/wildfly/bin/jboss-cli.sh --connect <<EOF
-if (outcome != success) of /core-service=management/access=authorization/role-mapping=SuperUser/include=wildfly-user:read-resource
-    /core-service=management/access=authorization/role-mapping=SuperUser/include=wildfly-user:add(name="${WILDFLY_USER}")
+if (outcome != success) of /core-service=management/access=authorization/role-mapping=SuperUser/include=admin:read-resource
+    /core-service=management/access=authorization/role-mapping=SuperUser/include=admin:add(name="$WILDFLY_USER", type="USER")
 end-if
 EOF
 
