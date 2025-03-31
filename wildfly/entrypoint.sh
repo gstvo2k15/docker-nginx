@@ -10,6 +10,10 @@ until curl -s http://localhost:9990/management > /dev/null; do
   sleep 1
 done
 
-/opt/jboss/wildfly/bin/jboss-cli.sh --connect --commands="/core-service=management/access=authorization/role-mapping=SuperUser/include=user-admin:add(name=${WILDFLY_USER})" || true
+/opt/jboss/wildfly/bin/jboss-cli.sh --connect <<EOF
+if (outcome != success) of /core-service=management/access=authorization/role-mapping=SuperUser/include=wildfly-user:read-resource
+    /core-service=management/access=authorization/role-mapping=SuperUser/include=wildfly-user:add(name="${WILDFLY_USER}")
+end-if
+EOF
 
 wait $WILDFLY_PID
