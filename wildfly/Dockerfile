@@ -1,5 +1,5 @@
 # Use a specific version of WildFly instead of "latest"
-FROM quay.io/wildfly/wildfly:35.0.1.Final
+FROM quay.io/wildfly/wildfly:35.0.1.Final-jdk17
 
 # Define WildFly home and credentials
 ENV WILDFLY_HOME=/opt/jboss/wildfly
