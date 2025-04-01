@@ -33,6 +33,7 @@ services:
       - "443:443"
     depends_on:
       - wildfly
+      - websphere
     networks:
       - backend
 
