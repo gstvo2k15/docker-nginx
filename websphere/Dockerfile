@@ -11,9 +11,12 @@ COPY server.xml /config/server.xml
 COPY jvm.options /config/jvm.options
 #COPY apps/*.war /config/apps/
 
-# Optional: copy and set custom entrypoint
+# Switch to root to install scripts and set permissions
+USER root
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
+
+USER wlp
 
 # Expose HTTP port
 EXPOSE 9080 9443
