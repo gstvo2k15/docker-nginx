@@ -9,7 +9,7 @@ ENV ADMIN_PASS=admin123
 # Copy server configuration and applications
 COPY server.xml /config/server.xml
 COPY jvm.options /config/jvm.options
-COPY apps/*.war /config/apps/
+#COPY apps/*.war /config/apps/
 
 # Optional: copy and set custom entrypoint
 COPY entrypoint.sh /entrypoint.sh
