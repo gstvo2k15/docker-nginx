@@ -14,11 +14,10 @@ services:
     build:
       context: ./websphere
     container_name: websphere
+    restart: unless-stopped    
     ports:
       - "9080:9080"
       - "9443:9443"
-    env_file:
-      - .env
     networks:
       - backend
 
