@@ -8,15 +8,7 @@ ENV ADMIN_PASS=admin123
 
 # Copy server configuration and applications
 COPY server.xml /config/server.xml
-COPY jvm.options /config/jvm.options
-#COPY apps/*.war /config/apps/
-
-# Switch to root to install scripts and set permissions
-USER root
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
-USER wlp
+COPY --chmod=755 entrypoint.sh /entrypoint.sh
 
 # Expose HTTP port
 EXPOSE 9080 9443
