@@ -10,6 +10,18 @@ services:
     networks:
       - backend
 
+  websphere:
+    build:
+      context: ./websphere
+    container_name: websphere
+    ports:
+      - "9080:9080"
+      - "9443:9443"
+    env_file:
+      - .env
+    networks:
+      - backend
+
   nginx:
     image: nginx:stable-alpine
     container_name: nginx-proxy

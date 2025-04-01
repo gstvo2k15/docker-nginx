@@ -1,0 +1,25 @@
+<server description="WebSphere Liberty Server">
+
+    <featureManager>
+        <feature>servlet-4.0</feature>
+        <feature>jsp-2.3</feature>
+        <feature>adminCenter-1.0</feature>
+        <feature>basicAuthentication</feature>
+    </featureManager>
+
+    <httpEndpoint id="defaultHttpEndpoint"
+                  host="*" httpPort="9080" httpsPort="9443"/>
+
+    <applicationManager autoExpand="true"/>
+
+    <webApplication location="sample.war" contextRoot="/"/>
+
+    <basicRegistry id="basic" realm="LibertyRealm">
+        <user name="${env.ADMIN_USER}" password="${env.ADMIN_PASS}"/>
+    </basicRegistry>
+
+    <administrator-role>
+        <user>${env.ADMIN_USER}</user>
+    </administrator-role>
+
+</server>
