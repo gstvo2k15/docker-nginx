@@ -1,5 +1,5 @@
 # Use a specific version of IBM WebSphere Liberty with Java 8
-FROM icr.io/appcafe/websphere-liberty:kernel-slim-java8-ibmjava-22.0.0.12
+FROM websphere-liberty:full-java8-ibmjava
 
 # Define Liberty server name and default credentials (can be overridden)
 ENV SERVER_NAME=defaultServer
